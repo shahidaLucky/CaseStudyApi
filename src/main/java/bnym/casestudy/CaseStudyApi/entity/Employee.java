@@ -5,23 +5,33 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Employee {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
+	@Column(length=20)
+	private String id;
 	
-	@Column(name="first_name")
+	@Column(name="first_name", length=50)
 	private String firstName;
 	
-	@Column(name="last_name")
+	@Column(name="last_name", length=50)
 	private String lastName;
 	
-	@Column
+	@Column(length=20)
 	private String mobile;
+	
+	@OneToOne
+	private Address homeAddress;
 
-	public int getId() {
+	@OneToOne
+	private Address workAddress; 
+	
+	@OneToOne
+	private Login loginDetails;
+	
+	public String getId() {
 		return id;
 	}
 
@@ -54,4 +64,6 @@ public class Employee {
 		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", mobile=" + mobile
 				+ "]";
 	}	
+	
+	
 }
