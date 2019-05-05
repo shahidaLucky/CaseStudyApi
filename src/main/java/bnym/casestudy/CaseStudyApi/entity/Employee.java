@@ -31,6 +31,9 @@ public class Employee {
 	@OneToOne
 	private Login loginDetails;
 	
+	@OneToOne
+	private JobDetails jobDetails;
+	
 	public String getId() {
 		return id;
 	}
