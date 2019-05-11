@@ -10,32 +10,33 @@ import javax.persistence.OneToOne;
 @Entity
 public class Employee {
 	@Id
-	@Column(length=20)
+	@Column(length = 10)
 	private String id;
-	
-	@Column(name="first_name", length=50)
+
+	@Column(name = "first_name", length = 50)
 	private String firstName;
-	
-	@Column(name="last_name", length=50)
+
+	@Column(name = "last_name", length = 50)
 	private String lastName;
-	
-	@Column(length=20)
-	private String mobile;
-	
+
 	@OneToOne
 	private Address homeAddress;
 
 	@OneToOne
-	private Address workAddress; 
-	
+	private Address workAddress;
+
 	@OneToOne
 	private Login loginDetails;
-	
+
 	@OneToOne
 	private JobDetails jobDetails;
-	
+
 	public String getId() {
 		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public String getFirstName() {
@@ -54,19 +55,17 @@ public class Employee {
 		this.lastName = lastName;
 	}
 
-	public String getMobile() {
-		return mobile;
+	public Login getLoginDetails() {
+		return loginDetails;
 	}
 
-	public void setMobile(String mobile) {
-		this.mobile = mobile;
+	public void setLoginDetails(Login loginDetails) {
+		this.loginDetails = loginDetails;
 	}
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", mobile=" + mobile
-				+ "]";
-	}	
-	
-	
+		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + "]";
+	}
+
 }
